@@ -1,32 +1,20 @@
-逻辑树
+不同框架下的爬虫
 ===
 
-一个基于Python和nltk的NLP，负责将输入语句按照逻辑树要求进行拆分。
+* law_bj:基于Python和Selenium Webdriver.
+* law_sh:基于Python的urllib.
+* law_tj:基于Python和bs4.
 
 
 安装方式：
 ---
 
-* 安装Python 2.6+ (不支持3.0)
-* 安装Java
-* 安装nltk及其附属包
-* 下载并解压STANFORD_PARSER，修改main.py line19中的路径 
-
-<pre>
-<code>
-parser = stanford.StanfordParser(model_path="D:\\stanfordparser\\stanford-parser-full-2015-04-20\\model\\edu\\stanford\\nlp\\models\\lexparser\\englishPCFG.ser.gz")
-</code>
-</pre>
-
-程序规则：
----
-
-* “\*"标注规则：首先在第一层中寻找NP，没有NP找VP。最后clean的时候将无符号句子标注为“\*"。
-* “\^"标注规则：将所有"\*"前面的成分，分段的合并，标为一句"\^"。
-* “\>"标注规则：从"SBAR","TO","PP"but not "of"处分开，并加入"\>"。
-* “\_"标注规则：如果"NN"后面为"SBAR",则分开，并将"NN"前后添加"\_"。
-* 其他：遇到","和":"将"\>"层数回归。
-* 其他：如果分段时候，后一词数少于3，则不分开。
+* 安装Python 2.7+ (不支持3.0)
+* 安装bs4
+* 安装Selenium 2.48+ 'pip install selenium'
+* 安装Chrome Webdriver
+* 解压chromedriver.exe到Python的安装目录下，如C:\Python27。 
+* 添加C:\Users\Administrator\AppData\Local\Google\Chrome\Application\（chrome安装路径，这里是win7下的安装路径）到环境变量path 
 
 
 
